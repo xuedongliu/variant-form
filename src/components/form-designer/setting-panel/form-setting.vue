@@ -340,7 +340,7 @@
     }
 
     ::v-deep .el-collapse-item__header {
-      font-style: italic;
+      //font-style: italic;
       font-weight: bold;
     }
   }

@@ -3,7 +3,7 @@
   "version": "2.2.9",
   "private": false,
   "scripts": {
-    "serve": "vue-cli-service serve --open src/main.js",
+    "serve": "vue-cli-service serve src/main.js",
     "build": "vue-cli-service build --report --dest dist/build",
     "lib": "vue-cli-service build --report --target lib --dest dist/lib --name VFormDesigner install.js",
     "lib-render": "vue-cli-service build --report --target lib --dest dist/lib-render --name VFormRender install-render.js",

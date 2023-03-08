@@ -94,7 +94,25 @@ export const containers = [
     }
   },
 
-
+  {
+    type: 'sub-form',
+    category: 'container',
+    icon: 'sub-form',
+    widgetList: [],
+    options: {
+      name: '',
+      showBlankRow: true,
+      showRowNumber: true,
+      labelAlign: '',
+      hidden: false,
+      actionColumnPosition: '',
+      customClass: [],
+      onSubFormRowAdd: "",
+      onSubFormRowInsert: "",
+      onSubFormRowDelete: "",
+      onSubFormRowChange: ""
+    }
+  }
 ]
 
 export const basicFields = [

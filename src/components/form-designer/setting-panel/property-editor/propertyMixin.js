@@ -32,7 +32,6 @@ export default {
 
     onMultipleSelected(val) {
       if (val) {
-        //debugger
 
         // 清空已选项，否则console会报错！！
         let foundRef = this.designer.formWidget.getWidgetRef(this.optionModel.name)

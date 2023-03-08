@@ -43,10 +43,10 @@ module.exports = {
 
   /* 指定node_modules目录中需要做babel转译的依赖库 */
   transpileDependencies: [
-    'element-ui', 'vuedraggable',
+    // 'element-ui', 'vuedraggable',
   ],
-
   css: {
+    sourceMap: process.env.NODE_ENV === 'development',
     loaderOptions: {
       scss: {
         /* 自动引入全局scss文件 */

@@ -152,7 +152,8 @@
         this.designer.emitEvent('field-selected', null)
       },
 
-      onDragUpdate() {  /* 在VueDraggable内拖拽组件发生位置变化时会触发update，未发生组件位置变化不会触发！！ */
+      onDragUpdate() {
+        /* 在VueDraggable内拖拽组件发生位置变化时会触发update，未发生组件位置变化不会触发！！ */
         this.designer.emitHistoryChange()
       },
 
@@ -207,7 +208,7 @@
 
     .el-form.full-height-width {
       height: 100%;
-      padding: 3px;
+      padding: 5px;
       background: #ffffff;
 
       .no-widget-hint {
@@ -253,6 +254,12 @@
     .el-form.widget-form ::v-deep .el-row {
       padding: 2px;
       border: 1px dashed rgba(170, 170, 170, 0.75);
+    }
+
+    &::v-deep{
+      .el-form-item{
+        margin-bottom: 0;
+      }
     }
   }
 

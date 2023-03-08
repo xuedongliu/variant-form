@@ -415,7 +415,8 @@ export function createDesigner(vueInstance) {
       this.emitHistoryChange()
     },
 
-    mergeTableWholeRow(rowArray, colArray, rowIndex, colIndex) { //需要考虑操作的行存在已合并的单元格！！
+    mergeTableWholeRow(rowArray, colArray, rowIndex, colIndex) {
+      //需要考虑操作的行存在已合并的单元格！！
       //整行所有单元格行高不一致不可合并！！
       let startRowspan = rowArray[rowIndex].cols[0].options.rowspan
       let unmatchedFlag = false
@@ -474,7 +475,8 @@ export function createDesigner(vueInstance) {
       this.emitHistoryChange()
     },
 
-    mergeTableWholeCol(rowArray, colArray, rowIndex, colIndex) { //需要考虑操作的列存在已合并的单元格！！
+    mergeTableWholeCol(rowArray, colArray, rowIndex, colIndex) {
+      //需要考虑操作的列存在已合并的单元格！！
       //整列所有单元格列宽不一致不可合并！！
       let startColspan = rowArray[0].cols[colIndex].options.colspan
       let unmatchedFlag = false

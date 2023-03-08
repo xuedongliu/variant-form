@@ -20,5 +20,6 @@ end */
 /* 全局注册！！ */
 requireComponent.keys().map(fileName => {
   let comp = requireComponent(fileName).default;
+  console.log(comp.name)
   Vue.component(comp.name, comp)
 })
