@@ -286,6 +286,7 @@ export default {
       showBlankRow: 'Show Blank Row',
       showRowNumber: 'Show Row Number',
       rowNumber: 'Row Number',
+      actionColumnPosition: 'Position Of Buttons Column',
 
       insertColumnToLeft: 'insert column to left',
       insertColumnToRight: 'insert column to right',

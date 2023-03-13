@@ -232,6 +232,7 @@ export default {
       fileTypes: '上传文件类型',
       fileTypesHelp: '支持添加其他文件类型',
       headers: '上传请求头',
+      actionColumnPosition: '操作列位置',
 
       cellWidth: '宽度',
       cellHeight: '高度',
