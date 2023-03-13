@@ -7,6 +7,9 @@
         <div v-if="leftActionColumn" class="action-header-column" >
           <span class="action-label">{{i18nt('render.hint.subFormAction')}}</span>
         </div>
+        <div class="field-header-column">
+          <span>{{i18nt('designer.setting.rowNumber')}}</span>
+        </div>
         <template v-for="(subWidget) in widget.widgetList">
           <div :key="subWidget.id + 'thc'" class="field-header-column"
                :class="[getLabelAlign(widget, subWidget), !!subWidget.options.required ? 'is-required' : '']"
@@ -42,9 +45,9 @@
                        :title="i18nt('render.hint.insertSubFormRow')"></el-button>
             <el-button :disabled="actionDisabled" circle type="" icon="el-icon-delete" @click="deleteSubFormRow(sfrIdx)"
                        :title="i18nt('render.hint.deleteSubFormRow')"></el-button>
-            <span v-if="widget.options.showRowNumber" class="row-number-span">#{{sfrIdx+1}}</span>
           </div>
         </div>
+        <span v-if="widget.options.showRowNumber" class="row-number-span">#{{sfrIdx+1}}</span>
         <template v-for="(subWidget, swIdx) in widget.widgetList">
           <div class="sub-form-table-column hide-label" :key="subWidget.id + 'tc' + subFormRowId"
                :style="{width: subWidget.options.columnWidth}">
@@ -57,6 +60,14 @@
             </component>
           </div>
         </template>
+        <div class="sub-form-action-column hide-label" v-if="!leftActionColumn">
+          <div class="action-button-column">
+            <el-button :disabled="actionDisabled" circle type="" icon="el-icon-circle-plus-outline" @click="insertSubFormRow(sfrIdx)"
+                       :title="i18nt('render.hint.insertSubFormRow')"></el-button>
+            <el-button :disabled="actionDisabled" circle type="" icon="el-icon-delete" @click="deleteSubFormRow(sfrIdx)"
+                       :title="i18nt('render.hint.deleteSubFormRow')"></el-button>
+          </div>
+        </div>
       </el-row>
     </div>
 

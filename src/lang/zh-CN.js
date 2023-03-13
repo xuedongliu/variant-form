@@ -285,6 +285,7 @@ export default {
       vertical: '是否竖向显示',
       showBlankRow: '默认显示新行',
       showRowNumber: '显示行号',
+      rowNumber: '行号',
 
       insertColumnToLeft: '插入左侧列',
       insertColumnToRight: '插入右侧列',

@@ -285,6 +285,7 @@ export default {
       vertical: 'Vertical',
       showBlankRow: 'Show Blank Row',
       showRowNumber: 'Show Row Number',
+      rowNumber: 'Row Number',
 
       insertColumnToLeft: 'insert column to left',
       insertColumnToRight: 'insert column to right',
