@@ -232,6 +232,7 @@ export default {
       fileTypes: '上传文件类型',
       fileTypesHelp: '支持添加其他文件类型',
       headers: '上传请求头',
+      actionColumnPosition: '操作列位置',
 
       cellWidth: '宽度',
       cellHeight: '高度',
@@ -285,6 +286,7 @@ export default {
       vertical: '是否竖向显示',
       showBlankRow: '默认显示新行',
       showRowNumber: '显示行号',
+      rowNumber: '行号',
 
       insertColumnToLeft: '插入左侧列',
       insertColumnToRight: '插入右侧列',

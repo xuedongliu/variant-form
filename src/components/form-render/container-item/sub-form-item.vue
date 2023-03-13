@@ -4,11 +4,11 @@
     <div :key="widget.id" class="sub-form-container"
          v-show="!widget.options.hidden">
       <el-row class="header-row">
-        <div class="action-header-column">
+        <div v-if="leftActionColumn" class="action-header-column" :class="[getLabelAlign(widget, widget)]">
           <span class="action-label">{{i18nt('render.hint.subFormAction')}}</span>
-          <el-button :disabled="actionDisabled" round type="primary" size="mini" class="action-button" @click="addSubFormRow"
-                     :title="i18nt('render.hint.subFormAddActionHint')">
-            {{i18nt('render.hint.subFormAddAction')}}<i class="el-icon-plus el-icon-right"></i></el-button>
+        </div>
+        <div class="field-header-column" :class="[getLabelAlign(widget, widget)]">
+          <span>{{i18nt('designer.setting.rowNumber')}}</span>
         </div>
         <template v-for="(subWidget) in widget.widgetList">
           <div :key="subWidget.id + 'thc'" class="field-header-column"
@@ -34,17 +34,20 @@
               <span :title="subWidget.options.labelTooltip">{{subWidget.options.label}}</span></template>
           </div>
         </template>
+        <div v-if="!leftActionColumn" class="action-header-column" :class="[getLabelAlign(widget, widget)]">
+          <span class="action-label">{{i18nt('render.hint.subFormAction')}}</span>
+        </div>
       </el-row>
       <el-row v-for="(subFormRowId, sfrIdx) in rowIdData" class="sub-form-row" :key="subFormRowId">
-        <div class="sub-form-action-column hide-label">
+        <div class="sub-form-action-column hide-label" v-if="leftActionColumn" :class="[getLabelAlign(widget, widget)]">
           <div class="action-button-column">
             <el-button :disabled="actionDisabled" circle type="" icon="el-icon-circle-plus-outline" @click="insertSubFormRow(sfrIdx)"
                        :title="i18nt('render.hint.insertSubFormRow')"></el-button>
             <el-button :disabled="actionDisabled" circle type="" icon="el-icon-delete" @click="deleteSubFormRow(sfrIdx)"
                        :title="i18nt('render.hint.deleteSubFormRow')"></el-button>
-            <span v-if="widget.options.showRowNumber" class="row-number-span">#{{sfrIdx+1}}</span>
           </div>
         </div>
+        <span v-if="widget.options.showRowNumber" class="row-number-span" :class="[getLabelAlign(widget, widget)]">#{{sfrIdx+1}}</span>
         <template v-for="(subWidget, swIdx) in widget.widgetList">
           <div class="sub-form-table-column hide-label" :key="subWidget.id + 'tc' + subFormRowId"
                :style="{width: subWidget.options.columnWidth}">
@@ -57,6 +60,14 @@
             </component>
           </div>
         </template>
+        <div class="sub-form-action-column hide-label" v-if="!leftActionColumn" :class="[getLabelAlign(widget, widget)]">
+          <div class="action-button-column">
+            <el-button :disabled="actionDisabled" circle type="" icon="el-icon-circle-plus-outline" @click="insertSubFormRow(sfrIdx)"
+                       :title="i18nt('render.hint.insertSubFormRow')"></el-button>
+            <el-button :disabled="actionDisabled" circle type="" icon="el-icon-delete" @click="deleteSubFormRow(sfrIdx)"
+                       :title="i18nt('render.hint.deleteSubFormRow')"></el-button>
+          </div>
+        </div>
       </el-row>
     </div>
 
@@ -100,6 +111,11 @@
     },
     mounted() {
       this.handleSubFormFirstRowAdd()  //默认添加首行后，主动触发相关事件！！
+    },
+    computed: {
+      leftActionColumn: function() {
+        return "left" === (this.widget.options.actionColumnPosition || "left")
+      }
     },
     beforeDestroy() {
       this.unregisterFromRefList()
