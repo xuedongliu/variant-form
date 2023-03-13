@@ -57,6 +57,7 @@ const COMMON_PROPERTIES = {
   'fileMaxSize'       :            'fileMaxSize-editor',
   'fileTypes'         :            'fileTypes-editor',
   'customClass'       :            'customClass-editor',
+  'actionColumnPosition': 'actionColumnPosition-editor',
 
   //容器
   'showBlankRow'       :            'showBlankRow-editor',

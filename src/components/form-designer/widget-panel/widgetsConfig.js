@@ -105,7 +105,7 @@ export const containers = [
       showRowNumber: true,
       labelAlign: '',
       hidden: false,
-      actionColumnPosition: '',
+      actionColumnPosition: 'right',
       customClass: [],
       onSubFormRowAdd: "",
       onSubFormRowInsert: "",

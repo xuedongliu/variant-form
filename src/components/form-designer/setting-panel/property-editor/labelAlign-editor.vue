@@ -24,7 +24,9 @@
     },
     computed: {
       noLabelSetting() {
-        return (this.selectedWidget.type === 'static-text') || (this.selectedWidget.type === 'html-text')
+        return (
+          this.selectedWidget.type === 'static-text') ||
+          (this.selectedWidget.type === 'html-text')
         //|| (this.selectedWidget.type === 'divider')
       },
 

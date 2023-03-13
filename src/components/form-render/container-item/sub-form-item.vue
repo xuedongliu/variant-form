@@ -4,11 +4,8 @@
     <div :key="widget.id" class="sub-form-container"
          v-show="!widget.options.hidden">
       <el-row class="header-row">
-        <div class="action-header-column">
+        <div v-if="leftActionColumn" class="action-header-column" >
           <span class="action-label">{{i18nt('render.hint.subFormAction')}}</span>
-          <el-button :disabled="actionDisabled" round type="primary" size="mini" class="action-button" @click="addSubFormRow"
-                     :title="i18nt('render.hint.subFormAddActionHint')">
-            {{i18nt('render.hint.subFormAddAction')}}<i class="el-icon-plus el-icon-right"></i></el-button>
         </div>
         <template v-for="(subWidget) in widget.widgetList">
           <div :key="subWidget.id + 'thc'" class="field-header-column"
@@ -34,9 +31,12 @@
               <span :title="subWidget.options.labelTooltip">{{subWidget.options.label}}</span></template>
           </div>
         </template>
+        <div v-if="!leftActionColumn" class="action-header-column" >
+          <span class="action-label">{{i18nt('render.hint.subFormAction')}}</span>
+        </div>
       </el-row>
       <el-row v-for="(subFormRowId, sfrIdx) in rowIdData" class="sub-form-row" :key="subFormRowId">
-        <div class="sub-form-action-column hide-label">
+        <div class="sub-form-action-column hide-label" v-if="leftActionColumn">
           <div class="action-button-column">
             <el-button :disabled="actionDisabled" circle type="" icon="el-icon-circle-plus-outline" @click="insertSubFormRow(sfrIdx)"
                        :title="i18nt('render.hint.insertSubFormRow')"></el-button>
@@ -100,6 +100,11 @@
     },
     mounted() {
       this.handleSubFormFirstRowAdd()  //默认添加首行后，主动触发相关事件！！
+    },
+    computed: {
+      leftActionColumn: function() {
+        return "left" === (this.widget.options.actionColumnPosition || "left")
+      }
     },
     beforeDestroy() {
       this.unregisterFromRefList()
