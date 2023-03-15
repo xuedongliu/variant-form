@@ -103,7 +103,7 @@
       'designer.widgetList': {
         deep: true,
         handler(val) {
-          //
+          console.log(val)
         }
       },
 
@@ -129,7 +129,7 @@
       },
 
       disableFirefoxDefaultDrop() {
-        let isFirefox = (navigator.userAgent.toLowerCase().indexOf("firefox") !== -1)
+        let isFirefox = ~(navigator.userAgent.toLowerCase().indexOf("firefox"))
         if (isFirefox) {
           document.body.ondrop = function (event) {
             event.stopPropagation();

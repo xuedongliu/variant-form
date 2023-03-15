@@ -1,5 +1,5 @@
 import 'babel-polyfill'
-import './utils/debug-console'
+// import './utils/debug-console'
 import Vue from 'vue'
 import axios from "axios";
 import App from './App.vue'
